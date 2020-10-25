@@ -1,0 +1,24 @@
+<table class="outer" cellspacing="1">
+  <{if $block.title}>
+    <tr>
+	    <{if $block.blockart=="full"}>
+        <th class="head" align="center" nowrap="nowrap"><{$smarty.const._MB_SMF_FORUM}></th>
+		  <{/if}>
+		  <th class="head" align="center" nowrap="nowrap"><{$smarty.const._MB_SMF_TITLE}></th>
+		  <{if $block.blockart=="full" || $block.blockart=="kompakt"}>
+        <th class="head" align="center" nowrap="nowrap"><{$smarty.const._MB_SMF_AUTHOR}></th>
+		  <{/if}>
+    </tr>
+	<{/if}>
+	<{foreach item=topic from=$block.content}>
+	  <tr class="<{cycle values="even,odd"}>">
+		  <{if $block.blockart=="full"}>
+        <td width="25%"><{$topic.board.link}></td>
+			<{/if}>
+      <td width="50%"><{$topic.icon}> <{$topic.link}><br><small><{$topic.preview}></small></td>
+			<{if $block.blockart=="full" || $block.blockart=="kompakt"}>
+        <td width="25%" align="right"><{$topic.time}><br><{$topic.poster.link}></td>
+			<{/if}>
+    </tr>
+  <{/foreach}>
+</table>
